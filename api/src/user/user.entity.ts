@@ -1,11 +1,18 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { CommonEntity } from 'src/common/base.entity';
+import { BeforeInsert, Column, Entity } from 'typeorm';
 
 @Entity('users')
-export class UserEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class UserEntity extends CommonEntity {
   @Column()
   name: string;
   @Column({ unique: true })
   username: string;
+  @Column()
+  password: string;
+  @Column({ unique: true })
+  email: string;
+  @BeforeInsert()
+  emailToLowerCase() {
+    this.email = this.email.toLowerCase();
+  }
 }

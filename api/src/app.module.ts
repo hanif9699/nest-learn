@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { UserEntity } from './user/user.entity';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -22,8 +23,10 @@ import { UserEntity } from './user/user.entity';
       logger: 'advanced-console',
       logging: 'all',
       installExtensions: true,
+      dropSchema: true,
     }),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
