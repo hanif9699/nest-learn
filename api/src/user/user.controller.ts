@@ -48,7 +48,9 @@ export class UserController {
           access_token: jwt,
         };
       }),
-      catchError((err) => of({ error: err })),
+      catchError((err) => {
+        return of({ error: err.message });
+      }),
     );
   }
 }

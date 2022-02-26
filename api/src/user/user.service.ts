@@ -78,7 +78,7 @@ export class UserService {
               const { password, ...results } = user;
               return results;
             } else {
-              throw new Error();
+              throw new Error('Wrong Creditenals');
             }
           }),
         );
