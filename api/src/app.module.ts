@@ -22,8 +22,6 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
       logger: 'advanced-console',
       logging: 'all',
-      installExtensions: true,
-      dropSchema: true,
     }),
     UserModule,
     AuthModule,
